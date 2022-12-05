@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.udacity.asteroidradar.Asteroid" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/view_RecycleView">
+
+
+        <TextView
+            android:id="@+id/astroName"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="@{item.codename}"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/Status_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/Status_img"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:layout_constraintBottom_toTopOf="@+id/astroDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.956"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/astroName"
+            app:srcCompat="@drawable/ic_status_potentially_hazardous"
+            app:statusIcon="@{item.potentiallyHazardous}" />
+
+        <TextView
+            android:id="@+id/astroDate"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:text="@{item.closeApproachDate}"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toStartOf="@+id/Status_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/astroName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
